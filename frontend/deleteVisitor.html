@@ -8,7 +8,7 @@
            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-          function InsertVisitor() {
+          function DeleteVisitor() {
             
             if ("WebSocket" in window) {
                alert("WebSocket is supported by your Browser!");
@@ -23,10 +23,10 @@
                   alert("Message is sent...");
 				  await sleep(1000);
 				  alert("sleep expired");
-				  wsSDP.send('{ "cmd": "addVistors", "tag": "123423424", "data": [{  "orId": "223344",  "userName": "223344", "paperNo": "11122", "paperType": "1", "sex": 1, "company": "1", "masterName": "112233", "reason": "11122", "startTime": "2020-10-07 17:00:00", "endTime": "2020-10-14 17:00:00", "phone": "11122", "photoUrl": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_495142964_198701.jpg", "areaCode": "QY001" } ] }');
+				  wsSDP.send('{ "cmd": "dellVistors", "tag": "123423424", "data": [{ "orId": "223344" } ] }');
 				  wsSDP.onmessage = function (evt) { 
                     var received_msg = evt.data;
-                    alert("Insert Message is received...");
+                    alert("delete Message is received...");
 				    alert(received_msg);	  
                   };
 				  
@@ -54,7 +54,7 @@
    
    <body>
       <div id = "sse">
-		 <a href = "javascript:InsertVisitor()">InsertVisitor</a>
+		 <a href = "javascript:DeleteVisitor()">DeleteVisitor</a>
       </div>
       
    </body>
